@@ -1,0 +1,32 @@
+-------------------------------------------------------------------
+Jacc, a yacc-like parser generator for Java           February 2004
+-------------------------------------------------------------------
+
+This is a preliminary release of the jacc parser generator.  See
+the file LICENSE for conditions of distribution and use.
+
+This software requires an installation of a Java 2 runtime, such as
+the JDK or JRE from java.sun.com.  (I have used jacc with a variety
+of different Java versions, from 1.1 to 1.4, and on a variety of
+different platforms, but your mileage may vary.)
+
+To install:
+
+  Copy the file jacc.jar to a suitable directory of your machine.
+
+  On Windows:
+    Copy the batch file jacc.bat to a directory on your path.
+    You should edit this file so that the string %JACC_PATH% is
+    replaced with the absolute path of the directory containing
+    jacc.jar (or else set the environment variable JACC_PATH to
+    point to that directory).
+
+  On Unix:
+    Copy the script file jacc to a directory on your path.
+    You should edit this file so that the string $JACC_PATH is
+    replaced with the absolute path of the directory containing
+    jacc.jar (or else set the environment variable JACC_PATH to
+    point to that directory).
+
+-------------------------------------------------------------------
+For more information, please contact mpj@cse.ogi.edu. 

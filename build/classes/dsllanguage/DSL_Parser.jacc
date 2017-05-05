@@ -1,0 +1,57 @@
+%package dsllanguage
+%semantic dsllanguage.ASTNodes.ASTNode
+%class DSL
+%interface DSLTokens
+
+%{ import java.util.Collections; %}
+
+%token VAR '=' ';' INTEGER STRING NAME WHILE EQ PRINT IF ELSE NEQ GE LE
+
+%%
+
+prog : prog stmt { $$ = $2; $$.execute(); DSLPanel.addNode($$);}
+  | stmt { $$ = $1; $$.execute(); DSLPanel.addNode($$);}
+  | /* Empty */
+  ;
+
+conditional : WHILE expr block { $$ = new dsllanguage.ASTNodes.WhileConditionalASTNode($2, $3); }
+    | IF expr block { $$ = new  dsllanguage.ASTNodes.IfConditionalASTNode($2, $3, null); }
+    | IF expr block ELSE block { $$ = new  dsllanguage.ASTNodes.IfConditionalASTNode($2, $3, $5); }
+    ;
+
+stmt : VAR NAME '=' expr ';' { $$ = new  dsllanguage.ASTNodes.DefinitionASTNode($2, $4); }
+    | NAME '=' expr ';' { $$ = new  dsllanguage.ASTNodes.AssignmentASTNode($1, $3); }
+    | conditional { $$ = $1; }
+    | PRINT expr ';' { $$ = new  dsllanguage.ASTNodes.PrintASTNode($2); }
+    | error ';'
+    ;
+
+stmt_list : stmt stmt_list { (( dsllanguage.ASTNodes.StatementASTNode)$2).body.add(0, $1); $$ = $2; }
+    | /* Empty */   { $$ = new  dsllanguage.ASTNodes.StatementASTNode(); }
+    ;
+
+block : '{' stmt_list '}' { $$ = $2; }
+    ;
+
+
+expr : expr '+' expr { $$ = new  dsllanguage.ASTNodes.AdditionBinaryASTNode($1, $3); }
+    | expr '-' expr { $$ = new  dsllanguage.ASTNodes.SubtractionBinaryASTNode($1, $3); }
+    | expr '*' expr { $$ = new  dsllanguage.ASTNodes.MultiplicationBinaryASTNode($1, $3); }
+    | expr '/' expr { $$ = new  dsllanguage.ASTNodes.DivisionBinaryASTNode($1, $3); }
+    | expr EQ expr { $$ = new dsllanguage.ASTNodes.ComparisonBinaryASTNode($1, $3, "=="); }
+    | expr NEQ expr { $$ = new dsllanguage.ASTNodes.ComparisonBinaryASTNode($1, $3, "!="); }
+    | expr GE expr { $$ = new dsllanguage.ASTNodes.ComparisonBinaryASTNode($1, $3, ">="); }
+    | expr LE expr { $$ = new dsllanguage.ASTNodes.ComparisonBinaryASTNode($1, $3, "<="); }
+    | expr '>' expr { $$ = new dsllanguage.ASTNodes.ComparisonBinaryASTNode($1, $3, ">"); }
+    | expr '<' expr { $$ = new dsllanguage.ASTNodes.ComparisonBinaryASTNode($1, $3, "<"); }
+    | '(' expr ')' { $$ = $2; }
+    | INTEGER { $$ = $1; }
+    | STRING { $$ = $1; }
+    | NAME { $$ = $1; }
+    ;
+
+%%
+
+private DSLLexer lexer;
+DSL(DSLLexer lexer) { this.lexer = lexer; }
+private void yyerror(String msg) { lexer.yyerror(msg); }

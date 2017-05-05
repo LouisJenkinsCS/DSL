@@ -1,0 +1,277 @@
+// Output created by jacc on Sat Apr 08 22:38:22 GMT 2017
+
+0: shift/reduce conflict (shift 3 and red'n 3) on VAR
+0: shift/reduce conflict (shift 4 and red'n 3) on error
+state 0 (entry on prog)
+    $accept : _prog $end
+    prog : _    (3)
+
+    VAR shift 3
+    error shift 4
+    $end reduce 3
+    . error
+
+    prog goto 1
+    stmt goto 2
+
+state 1 (entry on prog)
+    $accept : prog_$end
+    prog : prog_stmt    (1)
+
+    $end accept
+    VAR shift 3
+    error shift 4
+    . error
+
+    stmt goto 5
+
+state 2 (entry on stmt)
+    prog : stmt_    (2)
+
+    $end reduce 2
+    error reduce 2
+    VAR reduce 2
+    . error
+
+state 3 (entry on VAR)
+    stmt : VAR_NAME '=' expr ';'    (4)
+
+    NAME shift 6
+    . error
+
+state 4 (entry on error)
+    stmt : error_';'    (5)
+
+    ';' shift 7
+    . error
+
+state 5 (entry on stmt)
+    prog : prog stmt_    (1)
+
+    $end reduce 1
+    error reduce 1
+    VAR reduce 1
+    . error
+
+state 6 (entry on NAME)
+    stmt : VAR NAME_'=' expr ';'    (4)
+
+    '=' shift 8
+    . error
+
+state 7 (entry on ';')
+    stmt : error ';'_    (5)
+
+    $end reduce 5
+    error reduce 5
+    VAR reduce 5
+    . error
+
+state 8 (entry on '=')
+    stmt : VAR NAME '='_expr ';'    (4)
+
+    INTEGER shift 10
+    STRING shift 11
+    '(' shift 12
+    . error
+
+    expr goto 9
+
+state 9 (entry on expr)
+    expr : expr_'+' expr    (6)
+    expr : expr_'-' expr    (7)
+    expr : expr_'*' expr    (8)
+    expr : expr_'/' expr    (9)
+    stmt : VAR NAME '=' expr_';'    (4)
+
+    '*' shift 13
+    '+' shift 14
+    '-' shift 15
+    '/' shift 16
+    ';' shift 17
+    . error
+
+state 10 (entry on INTEGER)
+    expr : INTEGER_    (11)
+
+    ')' reduce 11
+    ';' reduce 11
+    '/' reduce 11
+    '-' reduce 11
+    '+' reduce 11
+    '*' reduce 11
+    . error
+
+state 11 (entry on STRING)
+    expr : STRING_    (12)
+
+    ')' reduce 12
+    ';' reduce 12
+    '/' reduce 12
+    '-' reduce 12
+    '+' reduce 12
+    '*' reduce 12
+    . error
+
+state 12 (entry on '(')
+    expr : '('_expr ')'    (10)
+
+    INTEGER shift 10
+    STRING shift 11
+    '(' shift 12
+    . error
+
+    expr goto 18
+
+state 13 (entry on '*')
+    expr : expr '*'_expr    (8)
+
+    INTEGER shift 10
+    STRING shift 11
+    '(' shift 12
+    . error
+
+    expr goto 19
+
+state 14 (entry on '+')
+    expr : expr '+'_expr    (6)
+
+    INTEGER shift 10
+    STRING shift 11
+    '(' shift 12
+    . error
+
+    expr goto 20
+
+state 15 (entry on '-')
+    expr : expr '-'_expr    (7)
+
+    INTEGER shift 10
+    STRING shift 11
+    '(' shift 12
+    . error
+
+    expr goto 21
+
+state 16 (entry on '/')
+    expr : expr '/'_expr    (9)
+
+    INTEGER shift 10
+    STRING shift 11
+    '(' shift 12
+    . error
+
+    expr goto 22
+
+state 17 (entry on ';')
+    stmt : VAR NAME '=' expr ';'_    (4)
+
+    $end reduce 4
+    error reduce 4
+    VAR reduce 4
+    . error
+
+state 18 (entry on expr)
+    expr : expr_'+' expr    (6)
+    expr : expr_'-' expr    (7)
+    expr : expr_'*' expr    (8)
+    expr : expr_'/' expr    (9)
+    expr : '(' expr_')'    (10)
+
+    '*' shift 13
+    '+' shift 14
+    '-' shift 15
+    '/' shift 16
+    ')' shift 23
+    . error
+
+19: shift/reduce conflict (shift 13 and red'n 8) on '*'
+19: shift/reduce conflict (shift 14 and red'n 8) on '+'
+19: shift/reduce conflict (shift 15 and red'n 8) on '-'
+19: shift/reduce conflict (shift 16 and red'n 8) on '/'
+state 19 (entry on expr)
+    expr : expr_'+' expr    (6)
+    expr : expr_'-' expr    (7)
+    expr : expr_'*' expr    (8)
+    expr : expr '*' expr_    (8)
+    expr : expr_'/' expr    (9)
+
+    '*' shift 13
+    '+' shift 14
+    '-' shift 15
+    '/' shift 16
+    ')' reduce 8
+    ';' reduce 8
+    . error
+
+20: shift/reduce conflict (shift 13 and red'n 6) on '*'
+20: shift/reduce conflict (shift 14 and red'n 6) on '+'
+20: shift/reduce conflict (shift 15 and red'n 6) on '-'
+20: shift/reduce conflict (shift 16 and red'n 6) on '/'
+state 20 (entry on expr)
+    expr : expr_'+' expr    (6)
+    expr : expr '+' expr_    (6)
+    expr : expr_'-' expr    (7)
+    expr : expr_'*' expr    (8)
+    expr : expr_'/' expr    (9)
+
+    '*' shift 13
+    '+' shift 14
+    '-' shift 15
+    '/' shift 16
+    ')' reduce 6
+    ';' reduce 6
+    . error
+
+21: shift/reduce conflict (shift 13 and red'n 7) on '*'
+21: shift/reduce conflict (shift 14 and red'n 7) on '+'
+21: shift/reduce conflict (shift 15 and red'n 7) on '-'
+21: shift/reduce conflict (shift 16 and red'n 7) on '/'
+state 21 (entry on expr)
+    expr : expr_'+' expr    (6)
+    expr : expr_'-' expr    (7)
+    expr : expr '-' expr_    (7)
+    expr : expr_'*' expr    (8)
+    expr : expr_'/' expr    (9)
+
+    '*' shift 13
+    '+' shift 14
+    '-' shift 15
+    '/' shift 16
+    ')' reduce 7
+    ';' reduce 7
+    . error
+
+22: shift/reduce conflict (shift 13 and red'n 9) on '*'
+22: shift/reduce conflict (shift 14 and red'n 9) on '+'
+22: shift/reduce conflict (shift 15 and red'n 9) on '-'
+22: shift/reduce conflict (shift 16 and red'n 9) on '/'
+state 22 (entry on expr)
+    expr : expr_'+' expr    (6)
+    expr : expr_'-' expr    (7)
+    expr : expr_'*' expr    (8)
+    expr : expr_'/' expr    (9)
+    expr : expr '/' expr_    (9)
+
+    '*' shift 13
+    '+' shift 14
+    '-' shift 15
+    '/' shift 16
+    ')' reduce 9
+    ';' reduce 9
+    . error
+
+state 23 (entry on ')')
+    expr : '(' expr ')'_    (10)
+
+    ')' reduce 10
+    ';' reduce 10
+    '/' reduce 10
+    '-' reduce 10
+    '+' reduce 10
+    '*' reduce 10
+    . error
+
+14 terminals, 3 nonterminals;
+12 grammar rules, 24 states;
+18 shift/reduce and 0 reduce/reduce conflicts reported.

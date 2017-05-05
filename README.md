@@ -4,17 +4,29 @@ DSL is a very minimal domain specific language, with a problem domain being acad
 
 ## Screenshots
 
+Below are screenshots of the Fibonacci problem
+
 ### Output from interpretation
 
-![screenshots/output.png]
+![output](screenshots/output.png)
 
 ### Generated Abstract Syntax Tree
 
-![screenshot/ast.png]
+![ast](screenshots/ast.png)
 
 ### Generated Control Flow Graph
 
-![screenshot/cfg.png]
+![cfg](screenshots/cfg.png)
+
+## Developer's Note and Warning
+
+I would like to note that this project was hacked together in a very brief time under *extremely* tense time constraints, and as such the code quality, to say the *least* is lacking. As well, the logic is counter-intuitive at times, and some things are still buggy and broken. I am officially done with the project, although it does deserve to be displayed here as a lot of work went into it. 
+
+### Bugs
+
+#### Control Flow Graph - Basic Block Reduction
+
+Control Flow Graph incorrectly reduces the last node of a while loop into its own basic block due to the wonky reduction algorithm I devised. If anyone wants to work on it, that's one of the first things needing to be done; the Control Flow Graph algorithm needs an entirely new overhaul. It should be noted that control flow itself is correct, as it does introduce a back-edge from the incorrectly-constructed singleton basic block.
 
 ## Grammar
 
@@ -75,13 +87,3 @@ while (x < y) {
   }
 }
 ```
-
-## Developer's Note and Warning
-
-I would like to note that this project was hacked together in a very brief time under *extremely* tense time constraints, and as such the code quality, to say the *least* is lacking. As well, the logic is counter-intuitive at times, and some things are still buggy and broken. I am officially done with the project, although it does deserve to be displayed here as a lot of work went into it. 
-
-### Bugs
-
-#### Control Flow Graph - Basic Block Reduction
-
-Control Flow Graph incorrectly reduces the last node of a while loop into its own basic block due to the wonky reduction algorithm I devised. If anyone wants to work on it, that's one of the first things needing to be done; the Control Flow Graph algorithm needs an entirely new overhaul. It should be noted that control flow itself is correct, as it does introduce a back-edge from the incorrectly-constructed singleton basic block.

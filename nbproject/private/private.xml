@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/AssignmentASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/NotEqualBinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/NameASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/ProgramASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/AdditionBinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/EqualBinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/BasicBlock.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/PrintASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTGraph.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/IfConditionalASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/ASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/DSLLexer.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/BinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/DSLTokens.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/DSL_Parser.jacc</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/DivisionBinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/MultiplicationBinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/WhileConditionalASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/Main.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/StatementASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/DefinitionASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/DSL.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/CFG.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/GlobalOutputStream.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/SubtractionBinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/ComparisonBinaryASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/SymbolTable.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/ASTNodes/ConditionalASTNode.java</file>
+            <file>file:/C:/Github/CourseWork/Theory_Of_Computation/DSLLanguage/src/dsllanguage/DSLPanel.java</file>
+        </group>
+    </open-files>
+</project-private>
